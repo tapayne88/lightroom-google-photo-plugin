@@ -2,14 +2,14 @@ return {
 	LrSdkVersion = 3.0,
 	LrSdkMinimumVersion = 3.0, -- minimum SDK version required by this plug-in
 
-	LrToolkitIdentifier = 'org.tapayne88.lightroom-google-photo-plugin',
-	LrPluginName = LOC "$$$/GPhoto/PluginName=Google Photo",
+	LrToolkitIdentifier = "org.tapayne88.lightroom-google-photo-plugin",
+	LrPluginName = LOC("$$$/GPhoto/PluginName=Google Photo"),
 
 	LrExportServiceProvider = {
-		title = LOC "$$$/GPhoto/GPhoto-title=Google Photo",
-		file = 'GPhotoExportServiceProvider.lua',
+		title = LOC("$$$/GPhoto/GPhoto-title=Google Photo"),
+		file = "GPhotoExportServiceProvider.lua",
 	},
-	LrMetadataProvider = 'GPhotoMetadataDefinition.lua',
+	LrMetadataProvider = "GPhotoMetadataDefinition.lua",
 	URLHandler = "GPhotoURLHandler.lua",
-	VERSION = { major=0, minor=1, revision=0 },
+	VERSION = { major = 0, minor = 1, revision = 0 },
 }
