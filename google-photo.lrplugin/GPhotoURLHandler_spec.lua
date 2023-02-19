@@ -1,0 +1,7 @@
+describe("GPhotoURLHandler", function()
+	describe("fake test", function()
+		it("does something", function()
+			assert.truthy("Yup.")
+		end)
+	end)
+end)
