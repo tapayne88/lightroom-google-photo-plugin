@@ -34,3 +34,13 @@ jobs:
         with:
           directories: google-photo.lrplugin
           configpath: ".luarc.json"
+
+  Tests:
+    name: Busted Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Lua Busted
+        uses: lunarmodules/busted@v2.1.1
