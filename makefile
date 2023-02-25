@@ -1,2 +1,2 @@
 test:
-	nix-shell --command 'busted ./google-photo.lrplugin'
+	nix-shell --command 'cd ./google-photo.lrplugin && busted .'
