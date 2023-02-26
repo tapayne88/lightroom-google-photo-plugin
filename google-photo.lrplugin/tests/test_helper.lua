@@ -6,6 +6,7 @@ local LrLogger = function()
 	local logger = {}
 
 	function logger:info() end
+	function logger:trace() end
 	function logger:enable() end
 
 	return logger
@@ -24,6 +25,16 @@ function M.mock_import(mocks)
 		end
 
 		return mocked_modules[lr_module_name]
+	end
+end
+
+function M.mock_import_reset()
+	_G.import = nil
+end
+
+function M.mock_lightroom_globals()
+	function _G.LOC(string)
+		return string
 	end
 end
 
