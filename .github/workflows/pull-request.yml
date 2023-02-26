@@ -45,4 +45,4 @@ jobs:
       - name: Lua Busted
         uses: lunarmodules/busted@v2.1.1
         with:
-          args: --directory ./google-photo.lrplugin .
+          args: --lpath ./tests/?.lua --directory ./google-photo.lrplugin ./tests
