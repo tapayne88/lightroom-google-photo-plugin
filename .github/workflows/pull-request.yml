@@ -29,8 +29,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Type Check Code Base
+      - name: Type Check Code
         uses: mrcjkb/lua-typecheck-action@v0.1.2
         with:
           directories: google-photo.lrplugin
-          configpath: ".luarc.json"
+          configpath: google-photo.lrplugin/.luarc.json
+      - name: Type Check Tests
+        uses: mrcjkb/lua-typecheck-action@v0.1.2
+        with:
+          directories: google-photo.lrplugin/tests
+          configpath: google-photo.lrplugin/tests/.luarc.json
+
+  Tests:
+    name: Busted Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Lua Busted
+        uses: lunarmodules/busted@v2.1.1
+        with:
+          args: --lpath ./tests/?.lua --directory ./google-photo.lrplugin ./tests
