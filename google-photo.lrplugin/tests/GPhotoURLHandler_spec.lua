@@ -1,4 +1,5 @@
 local mock_import = require("test_helper").mock_import
+local mock_import_reset = require("test_helper").mock_import_reset
 
 local GPhotoAPIMock = {}
 local GPhotoURLHandler
@@ -15,6 +16,10 @@ describe("GPhotoURLHandler", function()
 		_G.GPhotoAPI = GPhotoAPIMock
 
 		GPhotoURLHandler = require("GPhotoURLHandler")
+	end)
+
+	after_each(function()
+		mock_import_reset()
 	end)
 
 	describe("URLHandler", function()
