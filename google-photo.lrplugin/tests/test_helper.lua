@@ -19,7 +19,7 @@ function M.mock_import(mocks)
 	function _G.import(lr_module_name)
 		local mocked_modules = utils.merge(defaults, mocks)
 
-		if type(mocked_modules[lr_module_name]) ~= "function" then
+		if mocked_modules[lr_module_name] == nil then
 			print("unmocked call to `import('" .. lr_module_name .. "')")
 		end
 

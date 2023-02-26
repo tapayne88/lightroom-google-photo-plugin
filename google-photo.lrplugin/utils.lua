@@ -26,6 +26,9 @@ function M.merge(...)
 	return new_table
 end
 
+--- Crude function to stringify a table
+---@param o table
+---@return string
 function M.dump(o)
 	if type(o) == "table" then
 		local s = "{ "
