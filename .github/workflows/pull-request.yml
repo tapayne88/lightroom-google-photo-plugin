@@ -32,8 +32,9 @@ jobs:
       - name: Type Check Code Base
         uses: mrcjkb/lua-typecheck-action@v0.1.2
         with:
-          directories: google-photo.lrplugin
-          configpath: ".luarc.json"
+          directories: |
+            google-photo.lrplugin
+            google-photo.lrplugin/tests
 
   Tests:
     name: Busted Tests
