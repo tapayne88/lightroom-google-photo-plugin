@@ -2,28 +2,28 @@ language: c
 sudo: false
 env:
   global:
-  - LUAROCKS=2.3.0
-  - LUA=lua5.1
-  - secure: tyZgbf/vgEJd4ciJvClzqTrjSOsu4trNNhrwHR6pk4t84y8Ho+va+yqPYlAD5i6MUEWmHf9udyppY3m8BVGxMjYnykfKUel8Z0FydVUxBXQJbEizAb5GVHzj3qyjtWRexLvz08gOaRUdclyyJ1OODdHewRPd7ykxN0Gnb6vFRH4a6D+jpTesyl29/necYQqZ7aYgrvKKNlA4PULVeS+6KEg4/d6dEghYXB/RPMtQcmtezzUCM7opS9TX7GkhbV6fbX2vSqalBSuphMjMYEj8YZHvpMOKaxrVhCscMyT2gCwntQg0EpQe0lqaSVOoJYFMTkiLWi6XQJWQLI88JcPY4hqP6+hnbtPP2ODb1CaILtXSRu+44DqYRsDJ7lbNiCPyQUvmpHH1utRlwAHU9yGCKSS508mDGt7x9PL59MeR74mtOAMZwgXroKNSIfY2rYDj7XdggimHi9fX/G8D46zRsp0CW6wM9GJYhsagBkJnLX6VB4BHlQFCnbI/kB2m4CLloriv3bGszDEVmfkxmzNUkAjKwkwUL8QvDcFbv0v5/InqkXrIJBG+T2irOfagd8KYZBK79wTRS/tHKgN+nto7YORR7r+nQ/2OS9MSP1SyI5bdvnU/At/4cgrggepBIHr92erS+XjyNsYc3bdHQOAJpwrCLqHxecN7+Cs93cRnKG4=
+    - LUAROCKS=2.3.0
+    - LUA=lua5.1
+    - secure: tyZgbf/vgEJd4ciJvClzqTrjSOsu4trNNhrwHR6pk4t84y8Ho+va+yqPYlAD5i6MUEWmHf9udyppY3m8BVGxMjYnykfKUel8Z0FydVUxBXQJbEizAb5GVHzj3qyjtWRexLvz08gOaRUdclyyJ1OODdHewRPd7ykxN0Gnb6vFRH4a6D+jpTesyl29/necYQqZ7aYgrvKKNlA4PULVeS+6KEg4/d6dEghYXB/RPMtQcmtezzUCM7opS9TX7GkhbV6fbX2vSqalBSuphMjMYEj8YZHvpMOKaxrVhCscMyT2gCwntQg0EpQe0lqaSVOoJYFMTkiLWi6XQJWQLI88JcPY4hqP6+hnbtPP2ODb1CaILtXSRu+44DqYRsDJ7lbNiCPyQUvmpHH1utRlwAHU9yGCKSS508mDGt7x9PL59MeR74mtOAMZwgXroKNSIfY2rYDj7XdggimHi9fX/G8D46zRsp0CW6wM9GJYhsagBkJnLX6VB4BHlQFCnbI/kB2m4CLloriv3bGszDEVmfkxmzNUkAjKwkwUL8QvDcFbv0v5/InqkXrIJBG+T2irOfagd8KYZBK79wTRS/tHKgN+nto7YORR7r+nQ/2OS9MSP1SyI5bdvnU/At/4cgrggepBIHr92erS+XjyNsYc3bdHQOAJpwrCLqHxecN7+Cs93cRnKG4=
 branches:
   only:
-  - master
+    - master
 before_install:
-- source .travis/setenv_lua.sh
+  - source .travis/setenv_lua.sh
 script:
-- cd google-photo.lrplugin
-- sed -i.bak "s/CONSUMER_KEY = \"\"/CONSUMER_KEY = \""$CONSUMER_KEY"\"/" GPhotoAPI.lua
-- sed -i.bak "s/CONSUMER_SECRET = \"\"/CONSUMER_SECRET = \""$CONSUMER_SECRET"\"/" GPhotoAPI.lua
-- for i in *.lua; do luac -o $i $i; done
-- cd ..
-- zip -r /tmp/lightroom-google-photo-plugin.zip google-photo.lrplugin
+  - cd google-photo.lrplugin
+  - sed -i.bak "s/CONSUMER_KEY = \"\"/CONSUMER_KEY = \""$CONSUMER_KEY"\"/" GPhotoAPI.lua
+  - sed -i.bak "s/CONSUMER_SECRET = \"\"/CONSUMER_SECRET = \""$CONSUMER_SECRET"\"/" GPhotoAPI.lua
+  - for i in *.lua; do luac -o $i $i; done
+  - cd ..
+  - zip -r /tmp/lightroom-google-photo-plugin.zip google-photo.lrplugin
 deploy:
   provider: releases
   api_key:
     secure: CoJbTilMKXjJODqvMcsAQFf2v8iLVvqyzHEF1hyY7FAW7ke6RKJtb+SJ6FvaemsoqS++eEkk5dlgrNRGhKbEE3fMl6adfwrIKyom9m9iaATwYIiHLFPA/r86t/R7zDvwrD6cMG5NdnGMo78i1N8Ws6l1i3Gvzz8fHW1xOET7n6RTvD+wDJ4PRRLVAL17/zKjrYb6/5jXpq2gXngrkcdokX3hitv0EdGCx0mqxcGBfqq1auO9lfFJh7F/Uu7KdPEFrziCHJJILx2XvDiQPA/RUxUQlox+RRoixxKhEHW1e6xnwVKgmJmP5wQzVnMBYxIqliPwmb05jN80z9FEk6DCJsMvzjiRqFEtkeXcG/Q+XTETcf65brDD9RCbTBYl4y5ANGy2r96kFcsJHYfQBYT7q7m7wJbUymwoGW/Jl966sBjbXol8CCJh6C8g2SDE9CEFX0/m+wCov1wysX8ZIKle2gp8UB0BHKNMzkClHBsbGvrCRZPGANrlh7kXjrO3+gFrrZNDRS3Lws1QQbytjT6pqNVi2TjoZLZX4v16Wp8SD7YxLpzIrT59R8lsrIAeco30dEkAlM4w/xU6Jb28GRZRvKGCnyUf8FyPd9CVI6AaeOyft3YMcBmrCKnohJzSF4TKn685CKBfYd3BD3g2ZOiSLz6J5c1BOqQcjCuLYjghFnc=
   file: /tmp/lightroom-google-photo-plugin.zip
   on:
-    repo: stanaka/lightroom-google-photo-plugin
+    repo: tapayne88/lightroom-google-photo-plugin
 notifications:
   email:
     on_success: change

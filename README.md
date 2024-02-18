@@ -1,12 +1,12 @@
 # Google Photos Plugin for Adobe Photoshop Lightroom
 
-[![Build Status](https://travis-ci.org/stanaka/lightroom-google-photo-plugin.svg?branch=master)](https://travis-ci.org/stanaka/lightroom-google-photo-plugin)
+[![Build Status](https://app.travis-ci.com/tapayne88/lightroom-google-photo-plugin.svg?branch=master)](https://app.travis-ci.com/tapayne88/lightroom-google-photo-plugin)
 
 Google Photos Plugin make it easy to upload photos from Adobe Photoshop Lightroom to [Google Photos](https://photos.google.com/).
 
 ## Install and Usage
 
-1. Download a zip file from [Github Release](https://github.com/stanaka/lightroom-google-photo-plugin/releases) and uncompress it.
+1. Download a zip file from [Github Release](https://github.com/tapayne88/lightroom-google-photo-plugin/releases) and uncompress it.
 2. Copy **google-photo.lrplugin** into Lightroom plugins or add this plugin from Lightroom Plug-in Manager.
 3. Set up this plug-in as a Publish Service on Lightroom Publishing Manager
 
